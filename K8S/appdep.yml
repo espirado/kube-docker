@@ -2,19 +2,19 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
     labels:
-        app: frontend
-    name: frontend
+        app:  flask-test-app
+    name: acretest
 spec:
     replicas: 2
     selector:
         matchLabels:
-            app: frontend
+            app: flask-test-app
     template:
         metadata:
             labels:
-                app: frontend
+                app: flask-test-app
         spec:
             containers:
             - image:  docker.io/espirado/app-oneacre:appv2
               imagePullPolicy: IfNotPresent
-              name: frontend
+              name: flask-test-app

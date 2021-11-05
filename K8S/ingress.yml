@@ -8,7 +8,7 @@ spec:
         paths:
         - path: /
           backend:
-            serviceName: frontend-svc
+            serviceName: flask-test-service
             servicePort: 3012
 
 
