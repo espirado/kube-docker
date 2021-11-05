@@ -1,0 +1,26 @@
+version: '3'
+services:
+  app:
+    build: .
+    volumes:
+      - app:/app
+    ports: 
+      - "8000:8000"
+    links:
+      - redis:redis
+    depends_on:
+      - redis
+  redis:
+    image: "redis:alpine"
+    expose:
+      - "6379"
+  proxy:
+    image: nginx:1.13-alpine
+    build: nginx
+    restart: always
+    ports:
+      - 8086:8086
+    depends_on:
+      - app
+volumes:
+  app:
